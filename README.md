@@ -56,15 +56,18 @@ circonio-notification-service/
 ```
 
 ## Diagramas
-- **Diagramas de datos**: 
+- **Diagramas de datos**:
+  
     ![image](https://github.com/user-attachments/assets/2d41a27d-1f53-43b7-bae3-7b69ab1e8b3f)
 
 
-- **Diagramas de clases**: 
+- **Diagramas de clases**:
+
     ![image](https://github.com/user-attachments/assets/66bbf3e0-ac92-43cf-b08a-2e36a3244297)
 
 
 - **Diagramas de componentes**:
+  
     ![image](https://github.com/user-attachments/assets/ccde988d-a799-428b-b4be-66a90457fed5)
 
 ##  How to Run the Project
