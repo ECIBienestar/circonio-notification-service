@@ -57,15 +57,41 @@ circonio-notification-service/
 
 ## Diagramas
 - **Diagramas de datos**: 
-![image](https://github.com/user-attachments/assets/2d41a27d-1f53-43b7-bae3-7b69ab1e8b3f)
+    ![image](https://github.com/user-attachments/assets/2d41a27d-1f53-43b7-bae3-7b69ab1e8b3f)
 
 
 - **Diagramas de clases**: 
-![image](https://github.com/user-attachments/assets/66bbf3e0-ac92-43cf-b08a-2e36a3244297)
+    ![image](https://github.com/user-attachments/assets/66bbf3e0-ac92-43cf-b08a-2e36a3244297)
 
 
 - **Diagramas de componentes**:
-![image](https://github.com/user-attachments/assets/ccde988d-a799-428b-b4be-66a90457fed5)
+    ![image](https://github.com/user-attachments/assets/ccde988d-a799-428b-b4be-66a90457fed5)
+
+##  How to Run the Project
+
+### Prerequisites
+- Install **Java 17**
+- Install **Maven**
+
+### Steps to Run
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ECIBienestar/circonio-booking-loans-services.git
+   ```
+
+2. Configure database connection in `application.properties`:
+   ```properties
+   spring.application.name=EciBienestar
+   spring.datasource.username=postgres
+   spring.datasource.url=jdbc:postgresql://db.tbdioafooovaedfssykt.supabase.co:5432/postgres?
+   ```
+
+3. Build and run the application:
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
 
 
 
