@@ -1,11 +1,14 @@
 package com.notification.service;
 
 import com.notification.model.Notification;
+import com.notification.event.NotificationEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.MailException;
 import org.springframework.stereotype.Service;
+import org.springframework.context.ApplicationEventPublisher;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -16,7 +19,24 @@ public class NotificationService {
     @Autowired
     private JavaMailSender mailSender;
 
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
+
+    @Value("${service.id}")
+    private String originService;
+
     public String sendNotification(Notification notification) {
+        String originService = "notification-service"; 
+        String destinationService = null; 
+    
+        NotificationEvent event = new NotificationEvent(this, originService, destinationService, notification);
+        eventPublisher.publishEvent(event);
+    
+        return "Evento de notificación publicado para: " + notification.getRecipient();
+    }
+    
+
+    public String handleNotification(Notification notification) {
         switch (notification.getChannel()) {
             case EMAIL:
                 return sendEmail(notification);
@@ -47,12 +67,10 @@ public class NotificationService {
     }
 
     private String sendSMS(Notification notification) {
-        // Simulación del envío de SMS
         return "SMS enviado a " + notification.getRecipient() + ": " + notification.getMessage();
     }
 
     private String sendPush(Notification notification) {
-        // Simulación de notificación push
         return "Push enviado a " + notification.getRecipient() + ": " + notification.getMessage();
     }
 }
