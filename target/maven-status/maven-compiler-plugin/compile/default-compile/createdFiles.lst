@@ -1,7 +1,1 @@
-com\notification\service\NotificationService.class
-com\notification\NotificationApp.class
-com\notification\model\Notification.class
-com\notification\event\NotificationEvent.class
-com\notification\controller\NotificationController.class
-com\notification\model\NotificationChannel.class
-com\notification\service\NotificationService$1.class
+com\eci\notification\NotificationApplication.class
