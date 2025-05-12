@@ -1,6 +1,6 @@
 # ECI-Bienestar Notification Service
 
-The notification module functions as an independent component responsible for managing the delivery of messages to system users through various channels such as email, SMS, or push notifications. It is designed to be used by members of the School's academic community, allowing for an organized, accessible experience aligned with promoting university well-being.
+The notification module functions as an independent component responsible for managing the delivery of messages to system users through various channels such as email. It is designed to be used by members of the School's academic community, allowing for an organized, accessible experience aligned with promoting university well-being.
 
 ## Authors
 
@@ -13,10 +13,10 @@ The notification module functions as an independent component responsible for ma
 
 - Java 17
 - Spring Boot 3.x
+- RabbitMQ
 - Maven
 - JUnit 5
 - JaCoCo
-- SonarCloud
 - Azure
 
 ## Project Structure
@@ -26,30 +26,35 @@ circonio-notification-service/
 │
 ├── src/
 │   └── main/
-│       └── java/
+|       └── java/  
 │           └── com/
-│               └── notification/
-│                   ├── controller/
-│                   │   └── NotificationController.java
-│                   │
-│                   ├── service/
-│                   │   └── NotificationService.java
-│                   │
-│                   ├── model/
-│                   │   ├── Notification.java
-│                   │   └── NotificationChannel.java
-│                   │
-│                   ├── repository/
-│                   │   └── NotificationRepository.java
-│                   │
-│                   └── NotificationApplication.java
-│
+│               └── eci/
+│                   └── notification/
+│                       ├── config/
+│                       │   └── MailConfig.java
+│                       │
+│                       ├── messaging/
+│                       │   ├── dto/
+│                       │   │    └── CreatedReserveEvent.java
+│                       │   │
+│                       │   └── listener/
+│                       │        └── NotificationListener.java
+│                       │
+│                       └── service/
+│                           └── NotificationService.java
+│                       
 ├── src/
 │   └── test/
 │       └── java/
 │           └── com/
-│               └── notification/
-│                   └── (tests aquí)
+│               └── eci/
+│                   └── notification
+│                       └── messaging/
+│                       │   └── listener/
+│                       │        └── NotificationListenerTest.java
+│                       │
+│                       └── service/
+│                           └── NotificationServiceTest.java
 │
 ├── pom.xml
 └── README.md
