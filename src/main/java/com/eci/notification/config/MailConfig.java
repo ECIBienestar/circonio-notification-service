@@ -5,12 +5,20 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-@Configuration
+
 /**
- * Javamailsender configuration to send emails.
- * This class sets Javamailsender Bean that will be used to send emails.
+ * MailConfig class is responsible for configuring the JavaMailSender bean.
+ * It sets up the mail server properties such as host, port, username, and password.
  */
+@Configuration
 public class MailConfig {
+
+    /**
+     * JavaMailSender bean configuration.
+     * This method creates and configures a JavaMailSender instance.
+     *
+     * @return JavaMailSender
+     */
     @Bean
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
