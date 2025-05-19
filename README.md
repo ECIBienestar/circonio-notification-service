@@ -5,8 +5,7 @@ Notification microservice for the ECI-Bienestar platform. Handles real-time push
 ## Authors
 
 - Sebastián Julián Villarraga Guerrero
-```
-```
+
 ## Project Overview
 
 This microservice is part of the ECI-Bienestar integrated platform designed for the Escuela Colombiana de Ingeniería Julio Garavito.
@@ -147,13 +146,6 @@ We welcome contributions! To contribute:
   ```
 - View coverage report: `target/site/jacoco/index.html`.
 
-### Deployment Details
-- Hosted on Azure App Service.
-
-![image](https://github.com/user-attachments/assets/3cce130f-e90d-4043-be87-90446e994626)
-
-![image](https://github.com/user-attachments/assets/73072162-93ba-4ab8-9950-b3215d477b73)
-
 ## CI/CD and Deployment
 
 The project uses GitHub Actions to automate the build, test, and deployment process:
@@ -163,6 +155,13 @@ The project uses GitHub Actions to automate the build, test, and deployment proc
 - Deploy: Deploys the application to Azure App Services.
 - 
 Workflows are defined in .github/workflows/.
+
+### Deployment Details
+- Hosted on Azure App Service.
+
+![image](https://github.com/user-attachments/assets/3cce130f-e90d-4043-be87-90446e994626)
+
+![image](https://github.com/user-attachments/assets/73072162-93ba-4ab8-9950-b3215d477b73)
 
 ## Integration with Other Modules
 
