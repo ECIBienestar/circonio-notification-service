@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Mensajes WebSocket</h1>
-    <input type="text" id="msgInput">
+    <input type="text" id="msgInput" placeholder="Contenido del mensaje">
     <button onclick="sendMessage()">Enviar</button>
     <ul id="messages"></ul>
 
@@ -17,15 +17,21 @@
 
         stompClient.connect({}, function () {
             stompClient.subscribe('/topic/messages', function (message) {
+                const msg = JSON.parse(message.body);
                 const li = document.createElement("li");
-                li.textContent = message.body;
+                li.textContent = `${msg.title}: ${msg.content} [${msg.type}]`;
                 document.getElementById("messages").appendChild(li);
             });
         });
 
         function sendMessage() {
-            const msg = document.getElementById("msgInput").value;
-            stompClient.send("/app/send", {}, msg);
+            const content = document.getElementById("msgInput").value;
+            const payload = {
+                title: "Mensaje desde HTML",
+                content: content,
+                type: "info"
+            };
+            stompClient.send("/app/send", {}, JSON.stringify(payload));
         }
     </script>
 </body>
