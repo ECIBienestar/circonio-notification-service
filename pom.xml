@@ -112,7 +112,6 @@
             <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <dependencyManagement>
@@ -163,6 +162,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
             </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.10.0.2594</version>
+            </plugin>
+
 
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -180,6 +185,12 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+                        <configuration>
+                            <includes>
+                                <include>com/eci/notification/model/*</include>
+                                <include>com/eci/notification/controller/*</include>
+                            </includes>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>jacoco-check</id>
@@ -190,6 +201,10 @@
                             <rules>
                                 <rule>
                                     <element>PACKAGE</element>
+                                    <includes>
+                                        <include>com.eci.notification.model</include>
+                                        <include>com.eci.notification.controller</include>
+                                    </includes>
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
